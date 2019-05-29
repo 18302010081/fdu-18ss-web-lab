@@ -43,7 +43,11 @@ include 'travel-data.inc.php';
               //the next line is an example
               //<a href="list.php?country=Canada" role="button" class="btn btn-default"> Canada</a> 
 
-
+              foreach($countries as $x=>$x_value){
+                  echo'<a href="#" role="button" class="btn btn-default">';
+                  echo "$x_value" ;
+                  echo  '</a>';
+               }
               ?>
                      
         </div>               
@@ -71,6 +75,24 @@ include 'travel-data.inc.php';
    //              	</div>
    //              </a>
 			// </li>
+          foreach($images as $x=>$x_item){
+                $hreff="images/square/".$x_item['path'];
+                $b=$x_item['description'];
+                 echo '<li>';
+                 echo "<a href='detail.php?id=13' class=\"img-responsive\">";
+                 echo "<img src=$hreff alter=$b >";
+                 echo "	<div class=\"caption\">";
+                 echo "<div class=\"blur\">";
+                 echo "</div>";
+                 echo "<div class=\"caption-text\">";
+                 echo "<h1>";
+                 echo $x_item['title'] ;
+                 echo "</h1>";
+                 echo "</div>";
+                 echo "</div>";
+                 echo "</a>";
+                 echo '</li>';
+          }
           ?>
 
        </ul>       
@@ -78,16 +100,19 @@ include 'travel-data.inc.php';
       
     </main>
     
-    <footer>
-        <div class="container-fluid">
-                    <div class="row final">
-                <p>Copyright &copy; 2017 Creative Commons ShareAlike</p>
-                <p><a href="#">Home</a> / <a href="#">About</a> / <a href="#">Contact</a> / <a href="#">Browse</a></p>
-            </div>            
-        </div>
-        
 
-    </footer>
+
+        <footer>
+            <div class="container-fluid">
+                <div class="row final">
+                    <p>Copyright &copy; 2017 Creative Commons ShareAlike</p>
+                    <p><a href="#">Home</a> / <a href="#">About</a> / <a href="#">Contact</a> / <a href="#">Browse</a></p>
+                </div>
+            </div>
+
+
+        </footer>
+
 
 
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>

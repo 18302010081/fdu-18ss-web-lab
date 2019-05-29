@@ -127,52 +127,112 @@
          </tr>
 
          <!-- 这是你需要修改的地方 -->
+          <script>
+
+              var info =  [['images/art/tiny/116010.jpg',"Artist Holding a Thistle","2","500" ],
+                  ["images/art/tiny/113010.jpg","Self-portrait in a Straw Hat","1 ","700"  ] ]
+
+              var array =new Array();
+              for( var i = 0;i<=1 ;i++){
+                  array[i]= info[i][2] * info[i][3];
+              }
+
+
+              var subtotal =array[0] +array[1] ;
+              var tax = 0.1 * subtotal;
+
+              var shipping ;
+
+              if(subtotal<= 1000){
+                  shipping=40;
+              }
+              else{
+                  shipping=100;
+              }
+
+
+              var total = subtotal+tax+shipping;
+
+
+              for( var i =0;i<= 1 ; i++){
+                  document.write("<tr>")
+                  document.write("<td >"+"<img  class='thumbnail'   src= "+info[i][0]+">" +"</td>")
+                  for(j=1;j<4;j++)
+                  {
+                      document.write("<td>"+info[i][j]+"</td>")
+                  }
+                  document.write("<td>"+array[i] +"</td>")
+                  document.write("</tr>")
+              }
+
+
+
+              function f1(){
+                  document.getElementById("sub1").innerHTML = "$" + subtotal
+              }
+              function f2(){
+                  document.getElementById("tax1").innerHTML = "$" +tax
+              }
+              function f3(){
+                  document.getElementById("shipping1").innerHTML = "$" +shipping
+              }
+              function f4(){
+                  document.getElementById("gt1").innerHTML = "$" +total
+              }
+
+
+          </script>
          <!-- 本来是下面这样👇 -->
 
-         <!-- <tr>
-            <td><img class="img-thumbnail" src="images/art/tiny/116010.jpg" alt="..."></td>
-            <td>Artist Holding a Thistle</td>
-            <td>2</td>
-            <td>$500</td>
-            <td>$1000</td>
-         </tr>
-         <tr>
-            <td><img class="img-thumbnail" src="images/art/tiny/113010.jpg" alt="..."></td>
-            <td>Self-portrait in a Straw Hat</td>
-            <td>1</td>
-            <td>$700</td>
-            <td>$700</td>
-         </tr>  -->
-         
+          <!--<tr>-->
+            <!--<td><img class="img-thumbnail" src="images/art/tiny/116010.jpg" alt="..."></td>-->
+            <!--<td>Artist Holding a Thistle</td>-->
+            <!--<td>2</td>-->
+            <!--<td>$500</td>-->
+            <!--<td>$1000</td>-->
+         <!--</tr>-->
+         <!--<tr>-->
+            <!--<td><img class="img-thumbnail" src="images/art/tiny/113010.jpg" alt="..."></td>-->
+            <!--<td>Self-portrait in a Straw Hat</td>-->
+            <!--<td>1</td>-->
+            <!--<td>$700</td>-->
+            <!--<td>$700</td>-->
+         <!--</tr>-->
+
          <!-- 你需要按照图片上的要求使用javascript来完成 -->
          <!-- 所需要的数据在这里 -->
-         <!--
-         $file1 = '116010.jpg';
-         $product1 = 'Artist Holding a Thistle';
-         $quantity1 = 2;
-         $price1 = 500;
 
-         $file2 = '113010.jpg';
-         $product2 = 'Self-portrait in a Straw Hat';
-         $quantity2 = 1;
-         $price2 = 700;
-        -->
+         <!--$file1 = '116010.jpg';-->
+         <!--$product1 = 'Artist Holding a Thistle';-->
+         <!--$quantity1 = 2;-->
+         <!--$price1 = 500;-->
+
+         <!--$file2 = '113010.jpg';-->
+         <!--$product2 = 'Self-portrait in a Straw Hat';-->
+         <!--$quantity2 = 1;-->
+         <!--$price2 = 700;-->
+
+
 
          <tr class="success strong">
             <td colspan="4" class="moveRight">Subtotal</td>
-            <td >$1700</td>
+            <td id="sub1"></td>
+             <script>f1()</script>
          </tr>
          <tr class="active strong">
             <td colspan="4" class="moveRight">Tax</td>
-            <td>$170</td>
+            <td id="tax1"></td>
+             <script>f2()</script>
          </tr>  
          <tr class="strong">
             <td colspan="4" class="moveRight">Shipping</td>
-            <td>$100</td>
+            <td id="shipping1"></td>
+             <script>f3()</script>
          </tr> 
          <tr class="warning strong text-danger">
             <td colspan="4" class="moveRight">Grand Total</td>
-            <td>$1970</td>
+            <td id="gt1"></td>
+             <script>f4()</script>
          </tr>    
          <tr >
             <td colspan="4" class="moveRight"><button type="button" class="btn btn-primary" >Continue Shopping</button></td>
