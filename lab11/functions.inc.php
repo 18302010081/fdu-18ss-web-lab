@@ -32,4 +32,6 @@ function constructRating($rating) {
     return $imgTags;    
 }
 
+
+
 ?>
